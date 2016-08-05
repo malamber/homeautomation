@@ -1,0 +1,111 @@
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.* 
+import org.openhab.model.script.actions.*
+import org.openhab.core.types.Command 
+import org.openhab.core.types.*
+import org.openhab.core.items.GenericItem 
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+rule "VoiceControl" 
+
+when 
+    Item VoiceCommand received command 
+then 
+    var String command = VoiceCommand.state.toString.toLowerCase
+    logInfo("Voice.Rec","VoiceCommand received "+command)
+    var State newState = null
+   
+    if (command.contains("degrees") || command.contains("percent") || command.contains("dim")) {
+        
+        var Pattern p = Pattern::compile(".* ([0-9]+) (degrees|percent).*")
+        var Matcher m = p.matcher(command)
+        if (m.matches()) {
+            logInfo("Voice.Rec","found number is "+m.group(1))
+            newState = new StringType(m.group(1).trim())
+        } else {
+            logInfo("Voice.Rec","command does not match")
+        }
+    } else if (command.contains("off") || command.contains("stop") || command.contains("pause")) {
+        newState = OFF
+    } else if (command.contains("on") || command.contains("start") || command.contains("play")) {
+        newState = ON
+    } else if (command.contains("down") || command.contains("close")) {
+        newState = DOWN
+    } else if (command.contains("up") || command.contains("open")) {
+        newState = UP
+    } //else if (command.contains("increase")) {
+//        newState = INCREASE
+//    } else if (command.contains("decrease")) {
+//        newState = DECREASE
+//    }
+
+    
+    var String room = null
+       
+    if (command.contains("living")) {
+        room = "livingroom"     
+    } else if (command.contains("bedroom")) {
+        room = "bedroom"       
+    } else if (command.contains("bathroom") || command.contains("bath")) {
+        room = "bathroom"        
+    } else if (command.contains("kitchen")) {
+        room = "kitchen"        
+    } else if (command.contains("dining")) {
+        room = "diningroom"        
+    } else if (command.contains("office")) {
+        room = "office"        
+    } 
+	//logInfo("Voice.Rec", room)
+   
+    var String itemType=null
+    var String itemSubType=""
+    var String reply=""
+	if (command.contains("temperature")) {
+		var stateOnOff = thermostatSystemMode.getStateAs(thermostatSystemMode.acceptedDataTypes.get(0))
+	    if( stateOnOff == 1){
+			itemType = "thermostatCoolPoint"			
+			reply = "Ok, Temperature set to "+newState
+		}
+		if( stateOnOff == 2){
+			itemType = "thermostatHeatPoint"			
+			reply = "Ok, Temperature set to "+newState
+		}
+	}
+	if (command.contains("lights")) {
+		itemSubType = "Lights"
+	} else if (command.contains("fan")) {
+		itemSubType = "Fan"
+	} else  if (command.contains("volume")) {
+		room="denon"
+		itemSubType = "Volume"
+	} else  if (command.contains("mute") ) {
+		if(room=="livingroom"){
+			room="denon"			
+		} 
+		itemSubType = "Mute"
+		
+	} else if (command.contains("channel")) {
+		itemSubType = "TVChannel"
+		
+		var Pattern p = Pattern::compile(".*[0-9]+.*")
+        var Matcher m = p.matcher(command)
+        if (m.matches()) {
+            logInfo("Voice.Rec","found number is "+m.group(1))
+            newState = new StringType(m.group(1).trim())
+        } else {
+            logInfo("Voice.Rec","command does not match")
+        }
+	} 
+	//logInfo("Voice.Rec", itemSubType)
+    //logInfo("Voice.Rec","sending "+newState.toString)
+
+	var item = room + itemSubType
+	//logInfo("Voice.Rec","se item)
+    if (newState != null) {
+        
+		sendCommand(item,newState.toString)
+		logInfo("Voice.Rec", "sending "+newState+" to "+item) 
+        
+    }
+end

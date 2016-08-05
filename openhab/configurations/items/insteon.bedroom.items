@@ -1,0 +1,9 @@
+Group bedroom
+Switch bedroomFan		"Fan"		(bedroom,alldevices)		{ insteonplm = "01.65.E8:F00.00.02#switch"}
+Switch bedroomLights	"Lights"	(bedroom,alldevices)		{ insteonplm = "3B.EC.56:F00.00.02#switch"}
+Contact bedroomMotionSensor 	"Office Bedroom [MAP(motion.map):%s]" 	{ insteonplm="25.A6.CA:0x00004A#contact"}
+Number 	bedroomSensorBattery	"Battery level [%.1f]" 			{insteonplm="25.A6.CA:0x00004A#data,field=battery_level"}
+Number 	bedroomSensorLight		"Light level [%.1f]" 			{insteonplm="25.A6.CA:0x00004A#data,field=light_level"}
+
+//Switch bathroomLights		"Light"		(bedroom,alldevices)		{ insteonplm = "01.65.E8:F00.00.02#switch"}
+//Switch closetLights		"Light"		(bedroom,alldevices)		{ insteonplm = "01.65.E8:F00.00.02#switch"}

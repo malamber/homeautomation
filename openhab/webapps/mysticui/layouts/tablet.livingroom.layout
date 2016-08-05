@@ -1,0 +1,12 @@
+<frame width="max" height="max" orientation="horizontal"> 
+	<frame width="300" heigth="max" orientation="vertical">
+		<text size="20" label="Office" />
+		<frame>
+			<button item="officeLights" mapping="ON=On;OFF=Off"
+				label="" labelcolor="" labelsize=""/>
+			<button item="officeFan" icon="" />
+		</frame>
+	</frame>
+			
+</frame>
+	

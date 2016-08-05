@@ -1,0 +1,24 @@
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+import java.util.Date
+
+rule "Lights on when paused"
+when
+        Item livingroomPause changed from Play to Pause
+then
+        var Date sunsetTime = (G_SUNSET_V.state as DateTimeType).calendar.time
+        var Date sunriseTime = (G_SUNRISE_V.state as DateTimeType).calendar.time
+        if( now.toDate().after(sunsetTime) || now.toDate().before(sunriseTime)){                
+        	sendCommand( livingroomLights, "ON")     
+        }
+end
+
+rule "Lights off when pause end"
+when
+        Item LivingRoom_XBMC changed from Pause to Play
+then
+                  
+        sendCommand( livingroomLights, "OFFS")
+        
+end

@@ -1,0 +1,23 @@
+<frame label="thermostat">
+	<text id="thermostatTempFahren" label="Current Temp %v" />
+	
+	<group visibility="thermostatSystemMode==1" >
+		<text label="Cool" />
+		<slider id="thermostatCoolPoint"			
+			min="68" max="78"
+		/>
+		<button id="thermostatCoolPoint" data="UP"
+			label="+" labelcolor="" labelsize=""/>
+		<button id="thermostatCoolPoint" data="DOWN"
+			label="-" labelcolor="" labelsize=""/>
+		
+	</group>
+	<group visibility="thermostatSystemMode==2" >
+		<text label="Heat" />
+		<slider id="thermostatHeatPoint" min="68" max="78" />
+		<button id="thermostatHeatPoint" data="UP"
+			label="+" labelcolor="" labelsize=""/>
+		<button id="thermostatHeatPoint" data="DOWN"
+			label="-" labelcolor="" labelsize=""/>		
+	</group>
+</frame>

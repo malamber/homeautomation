@@ -1,0 +1,56 @@
+<sitemap>
+<!--
+
+<link>groupId</link>
+
+<button state=""/>
+<switch state=""/>
+<text />
+<image src=""/>
+<slider min="" max="" value=""/>
+	
+<items id="" 
+	text="" textcolor="" textsize=""
+	background="" icon="http://"
+	x="" y="" height="" width=""/>
+-->
+	<style>
+		<background></background>
+		<buttonstyle id="default">
+			<buttonimage>
+				<pressed></pressed>
+				<default></default>
+				<disabled></disabled>
+			</buttonimage> 
+			
+			<padding></padding>
+			<textcolor></textcolor>
+			<textsize></textsize>
+		</buttonstyle>
+		<textstyle id="">
+			<textcolor></textcolor>
+			<textsize></textsize>
+			<align></align>
+		</textstyle>
+	</style>
+	
+	
+	<section id="sectionLivingroom" label="Livingroom" icon="" background="">
+		<frame label="Lights">
+			<button item="livingroomLights" label="" 
+				height="" width=""/>
+			<button item="livingroomFan" label=""
+				height="" width=""/>
+			<button item="diningroomLights" label="" 
+				height="" width=""/>
+		</frame>	
+	</section>
+	
+	<window id="" title="">
+		<include>thermostat.layout</include>
+	</window>
+	
+	
+	<include>widget2x3.layout</include>
+	
+</sitemap>

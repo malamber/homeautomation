@@ -1,0 +1,10 @@
+sitemap default label="Android"
+{	
+	Frame label="Living Room" {		
+		
+		Switch item=LR_Lights label="Lights"
+		Switch item=DR_Lights label="DR Lights"
+		Switch item=LR_Fan label="Fan"
+		
+	}
+}

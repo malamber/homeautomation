@@ -1,0 +1,5 @@
+//Group network
+Switch	netGateway 	"Gateway"		{ nh="73.43.132.135"}
+Switch	netScott 	"Phone"			{ nh="130.205.36.128"}
+Switch	netAshaman	"Ashaman"		{ nh="130.205.32.7"}
+Switch	netDevin 	"Devin"			{ nh="130.205.36.166"}

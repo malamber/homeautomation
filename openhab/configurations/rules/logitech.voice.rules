@@ -1,0 +1,48 @@
+import org.joda.time.*
+
+rule "LogitechRequest"
+when 
+	Item VoiceCommand received command 
+then       
+	var String command = VoiceCommand.state.toString.toLowerCase
+    logInfo("Voice.Rec","VoiceCommand received "+command)
+    var State newState = null
+   
+	var String device= null
+	var String button = null
+	if (command.contains("channel"){
+	}
+	else if(command.contains("start"){
+	}
+    else if (command.contains("off") ) {
+		
+    } else if (command.contains("on")) {
+       
+    } else if (command.contains("down")) {
+        button = "down"
+    } else if (command.contains("up")) {
+		button = "up"
+		if (command.contains("page"))
+			button = "pageup"
+    } else if (command.contains("left")) {
+        button = "left"
+    } else if (command.contains("right")) {
+        button = "right"
+    } else if (command.contains("ok") 
+			|| command.contains("okay")) 
+			|| command.contains("enter")) 
+	{
+        button = "enter"
+    } else if (command.contains("back")) 
+			|| command.contains("return")) {
+        button = "back"
+    } else if (command.contains("right")) {
+        button = "right"
+    } else if (command.contains("mute")) {
+        button = "tmute"
+    } 
+	
+	//harmonyStartActivity("PowerOff")
+	harmonyPressButton(device, button)
+end
+

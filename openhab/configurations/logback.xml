@@ -1,0 +1,167 @@
+<configuration scan="true">
+
+	<appender name="LOGITECH"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${openhab.logdir:-logs}/logitech.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- weekly rollover and archiving -->
+			<fileNamePattern>${openhab.logdir:-logs}/logitech-%d{yyyy-ww}.log.zip</fileNamePattern>
+
+			<!-- maximum number of archive files to keep -->
+			<maxHistory>1</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="org.openhab.io.harmonyhub" level="INFO" additivity="false">
+		<appender-ref ref="LOGITECH" />
+	</logger>
+	<logger name="org.openhab.binding.harmonyhub" level="INFO" additivity="false">
+		<appender-ref ref="LOGITECH" />
+	</logger>
+	
+	<logger name="openhab.model.script.Voice" level="DEBUG" additivity="false">
+		<appender-ref ref="VOICEFILE" />
+	</logger>
+	<appender name="VOICEFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${openhab.logdir:-logs}/voice.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- weekly rollover and archiving -->
+			<fileNamePattern>${openhab.logdir:-logs}/voice-%d{yyyy-ww}.log.zip</fileNamePattern>
+
+			<!-- maximum number of archive files to keep -->
+			<maxHistory>1</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="NETFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${openhab.logdir:-logs}/network.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- weekly rollover and archiving -->
+			<fileNamePattern>${openhab.logdir:-logs}/net-%d{yyyy-ww}.log.zip</fileNamePattern>
+
+			<!-- maximum number of archive files to keep -->
+			<maxHistory>1</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="org.openhab.binding.networkhealth" level="WARN" additivity="false">
+		<appender-ref ref="NETFILE" />
+	</logger>
+	<appender name="DENONFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${openhab.logdir:-logs}/denon.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- weekly rollover and archiving -->
+			<fileNamePattern>${openhab.logdir:-logs}/denon-%d{yyyy-ww}.log.zip</fileNamePattern>
+
+			<!-- maximum number of archive files to keep -->
+			<maxHistory>1</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="org.openhab.binding.denon" level="WARN" additivity="false">
+		<appender-ref ref="DENONFILE" />
+	</logger>
+	
+	
+	<appender name="KODIFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${openhab.logdir:-logs}/kodi.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- weekly rollover and archiving -->
+			<fileNamePattern>${openhab.logdir:-logs}/kodi-%d{yyyy-ww}.log.zip</fileNamePattern>
+
+			<!-- maximum number of archive files to keep -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="org.openhab.binding.xbmc" level="WARN" additivity="false">
+		<appender-ref ref="KODIFILE" />
+	</logger>
+	
+	<appender name="INSTEONPLMFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${openhab.logdir:-logs}/insteonplm.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${openhab.logdir:-logs}/insteonplm-%d{yyyy-ww}.log.zip</fileNamePattern>
+		<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<!-- Change DEBUG->TRACE for even more detailed logging -->
+	<logger name="org.openhab.binding.insteonplm" level="INFO" additivity="false">
+		<appender-ref ref="INSTEONPLMFILE" />
+	</logger>
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%-5level] : %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${openhab.logdir:-logs}/openhab.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- weekly rollover and archiving -->
+			<fileNamePattern>${openhab.logdir:-logs}/openhab-%d{yyyy-ww}.log.zip</fileNamePattern>
+			<!-- maximum number of archive files to keep -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%-5level] [%-30.30logger{36}] - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="EVENTFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${openhab.logdir:-logs}/events.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- weekly rollover and archiving -->
+			<fileNamePattern>${openhab.logdir:-logs}/events-%d{yyyy-ww}.log.zip</fileNamePattern>
+			<!-- maximum number of archive files to keep -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>]%d{HH:mm:ss}] : %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="runtime.busevents" level="INFO" additivity="false">
+		<appender-ref ref="EVENTFILE" />
+		
+	</logger>
+
+	<logger name="org.openhab" level="INFO"/>
+
+	<!-- this class gives an irrelevant warning at startup -->
+	<logger name="org.atmosphere.cpr.AtmosphereFramework" level="ERROR" />
+
+	<!-- temporary workaround for https://github.com/openhab/jmdns/issues/12 -->
+	<logger name="javax.jmdns" level="OFF"/>
+
+	<!-- temporary workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=402750 -->
+	<logger name="OSGi" level="OFF" />
+	
+	<!-- temporary workaround to circumvent error messages with any obvious effect -->
+	<logger name="org.atmosphere.cpr.AtmosphereFramework" level="OFF" />
+	<logger name="org.atmosphere.cpr.DefaultAnnotationProcessor" level="OFF" />
+	
+	<root level="WARN">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>

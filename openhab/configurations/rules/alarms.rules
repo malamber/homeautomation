@@ -1,0 +1,15 @@
+import org.joda.time.*
+
+rule "12Meds"
+when 
+	Time cron "0 0 12 * * ?"
+then        
+	play("Castor.ogg")
+end
+
+rule "Antibiotics"
+when 
+	Time cron "0 0 20 * * ?"
+then        
+	play("Castor.ogg")
+end

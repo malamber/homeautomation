@@ -1,0 +1,57 @@
+<sitemap>
+<!--
+
+<link>groupId</link>
+
+<button state=""/>
+<switch state=""/>
+<text />
+<image src=""/>
+<slider min="" max="" value=""/>
+	
+<items id="" 
+	text="" textcolor="" textsize=""
+	background="" icon="http://"
+	x="" y="" height="" width=""/>
+-->
+	<style>
+		<background></background>
+		<button>
+			<background state="pressed"></background>
+			<background></background>
+			<padding></padding>
+			<textcolor></textcolor>
+			<textsize></textsize>
+		</button>
+		<textstyle>
+			<textcolor></textcolor>
+			<textsize></textsize>
+		</textstyle>
+	</style>
+	<!-- link new fragment-->
+	<group />
+	<section id="" text="Livingroom" icon="" background="">
+		<frame text="Lights">
+			<button id="livingroomLights" 
+				text="" textcolor="" textsize=""/>
+			<button id="livingroomFan" 
+				text="" textcolor="" textsize=""/>
+			<button id="diningroomLights" 
+				text="" textcolor="" textsize=""/>
+		</frame>
+		
+		
+		<include>kodi_livingroom.layout</include>
+	
+	</section>
+	<section id="" text="Office" icon="" background="">
+		<row>
+			<button id="officeLights" 
+				text="" textcolor="" textsize=""/>
+			<button id="officeFan" icon="" />
+		</row>		
+	</section>
+	<window id="" title="">
+		<include>thermostat.layout</include>
+	</window>
+</sitemap>

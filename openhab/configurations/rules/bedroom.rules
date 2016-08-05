@@ -1,0 +1,26 @@
+rule "BedroomMotion"
+when
+	Item bedroomMotionSensor changed to OPEN
+then
+	var endTime = new DateTime()
+    .withHourOfDay(22)
+    .withMinuteOfHour(0)
+    .withSecondOfMinute(0)
+    
+	if (now.isAfter((sunset.state as DateTimeType).calendar.timeInMillis)
+		&& now.isBefore(endTime)	)
+	{
+		logInfo("Motion","Motion detected (Bedroom)")
+		sendCommand(bedroomLights, "ON")
+		playSound("perfect.mp3")
+	}
+end
+
+rule "BedroomMotionOut"
+when
+	Item  bedroomMotionSensor changed to CLOSED
+then
+	logInfo("Motion","No Motion detected (Bedroom)")
+	playSound("perfect.mp3")
+	bedroomLights.sendCommand("OFF")
+end

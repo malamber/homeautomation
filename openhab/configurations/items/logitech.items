@@ -1,0 +1,3 @@
+String HarmonyActivity         "activity [%s]" { harmonyhub="*[currentActivity]" }
+String HarmonyPowerOff       "Power Off"      { harmonyhub=">[start:PowerOff]" }
+String HarmonyWatchTV        "Watch TV"       { harmonyhub=">[start:TV]" }

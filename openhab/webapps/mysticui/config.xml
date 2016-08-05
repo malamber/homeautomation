@@ -1,0 +1,5 @@
+<config>
+	<layout file="home.layout" name="Home" />
+	<layout file="nexus6p.layout" name="Android" />
+	
+</config>

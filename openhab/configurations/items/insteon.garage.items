@@ -1,0 +1,9 @@
+Switch 	garageDoorOpener	"Main Garage Door"	{insteonplm="23.D3.19:0x00001A#switch"}
+Contact garageDoorContact	"Garage Door [MAP(contact.map):%s]"	{insteonplm="25.B5.65:0x00001A#contact"}
+
+//Switch mainFan			"Fan"		(alldevices)	{ insteonplm = "3B.EC.56:F00.00.02#switch", autoupdate="false"}
+//Switch garageHallLights	"Lights"	(alldevices)	{ insteonplm = "3B.EC.56:F00.00.02#switch", autoupdate="false"}
+
+
+
+

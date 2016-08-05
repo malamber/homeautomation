@@ -1,0 +1,15 @@
+Group livingroom
+
+Switch livingroomState
+Switch livingroomFan			"Fan"		(livingroom,alldevices)	{ insteonplm = "23.D9.4F:F00.00.02#switch" }
+Dimmer livingroomLights			"Lights"	(livingroom,alldevices)	{ insteonplm = "24.87.DE:F00.00.01#dimmer"}
+Switch diningroomLights			"Lights"	(livingroom,alldevices)	{ insteonplm = "30.BA.B6:F00.00.02#switch"}
+
+//Switch frontdoorInside_Lights		"Lights"	{ insteonplm = "3B.EC.56:F00.00.02#switch", autoupdate="false"}
+//Switch frontdoorOutside_Lights	"Lights"	{ insteonplm = "3B.EC.56:F00.00.02#switch"}
+//Switch doorLock "Front Door [MAP(lock.map):%s]" {insteonplm="35.A9.3E:F00.00.09#switch"}
+//Contact doorSensor "Door sensor [MAP(contact.map):%s]" {insteonplm="35.A9.3E:F00.00.03#contact"}
+//Webview url="http://130.205.36.11:8080/static/camera.html" height=14
+
+
+

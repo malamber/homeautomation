@@ -1,0 +1,24 @@
+Switch kodiPower	"Power"
+
+//Switch XBMC_Power "XBMC Power" {xbmc=">[#lr|System.Exit]", nh="130.205.36.195:8080"}
+
+Switch	livingroomPause 		"Pause" 			{ xbmc=">[#lr|Player.PlayPause]" , autoupdate="false"}
+Switch	livingroomExit 			"Exit" 				{ xbmc=">[#lr|Application.Quit]" , autoupdate="false"}
+Dimmer 	livingroomVolume 		"Volume [%.1f]" 	{ xbmc="=[#lr|Application.Volume]" }
+String 	livingroomTVChannel 	"Channel [%s]"  	{ xbmc=">[#lr|PVR.OpenTV]" }
+String 	livingroomTVChannelOpen "Channel [%s]"  	{ xbmc="<[#lr|Player.Label]" }
+String 	livingroomState			"Livingoom [%s]"	{ xbmc="<[#lr|Player.State]"}
+String 	livingroomTitle  		"Playing [%s]"    	{ xbmc="<[#lr|Player.Title]" }
+String 	livingroomPlayerType	"Type: [%s]"  		{ xbmc="<[#lr|Player.Type]" }
+
+Switch	bedroomPause 			"Pause" 			{ xbmc=">[#br|Player.PlayPause]" , autoupdate="false"}
+Switch	bedroomStop 			"Stop" 				{ xbmc=">[#br|Player.Stop]" , autoupdate="false"}
+Switch	bedroomExit 			"Exit" 				{ xbmc=">[#br|Application.Quit]" , autoupdate="false"}
+String 	bedroomTVChannelOpen 	"Channel [%s]"  	{ xbmc="<[#br|Player.Title]" }
+String 	bedroomTVChannel    	"Channel [%s]"  	{ xbmc=">[#br|PVR.OpenTV]" }
+Dimmer 	bedroomVolume 			"Volume [%.1f]" 	{ xbmc="=[#br|Application.Volume]" }
+String 	bedroomState			"Bedroom [%s]"		{ xbmc="<[#br|Player.State]"}
+String 	bedroomTitle  			"Playing [%s]"    	{ xbmc="<[#br|Player.Title]" }
+String 	bedroomPlayerType		"Type: [%s]"  		{ xbmc="<[#br|Player.Type]" }
+Switch	bedroomMute		 		"Mute" 			{ xbmc=">[#lr|Player.PlayPause]" , autoupdate="false"}
+String 	kodiPowerState			"RPi: [%s]"  		{ xbmc="<[#power|Player.State]" }

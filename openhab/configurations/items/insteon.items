@@ -1,0 +1,1 @@
+Number	officeSensorBattery	"Battery level [%.1f]"	(office)		{ insteonplm="25.A6.E7:0x00004A#data,field=battery_level" }

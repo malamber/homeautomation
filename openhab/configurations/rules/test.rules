@@ -1,0 +1,19 @@
+import org.joda.time.*
+
+rule "Test"
+when 
+	Item test received command
+then       
+	sendCommand(officeLights, "ON")
+	logInfo("TEST","ON") 
+	pushover("test")
+end
+
+rule "houseState"
+when
+	houseState received command OFF
+then
+	logInfo("Power off the house")
+	alldevices.send(OFF) 
+
+end

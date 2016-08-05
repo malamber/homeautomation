@@ -1,0 +1,18 @@
+
+rule "OfficeMotion"
+when
+	Item officeMotionSensor changed to OPEN
+then	
+	logInfo("Motion","Motion detected (Office)")
+	sendCommand(officeLights, "ON")
+	say("Office motion")
+end
+
+rule "OfficeMotionOut"
+when
+	Item  officeMotionSensor changed to CLOSED
+then
+	logInfo("Motion","No Motion detected (Office)")
+	sendCommand(officeLights, "OFF")
+		say("Office idle")
+end

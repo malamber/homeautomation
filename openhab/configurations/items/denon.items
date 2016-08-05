@@ -1,0 +1,7 @@
+Switch denonPower 	"Power"	(alldevices)	{denon="avr2000#PW"}
+Dimmer denonVolume 	"Volume [%.1f]" {denon="avr2000#MV"} 
+Switch denonMute 	"Mute" {denon="avr2000#MU"} 
+Switch denonInputMplay "Input Mediaplayer" {denon="avr2000#SIMPLAY"} 
+Switch denonInputGame "Input Game" {denon="avr2000#SIGAME"} 
+
+Switch	tvPower           {samsungtv="ON:Livingroom:KEY_POWERON, OFF:Livingroom:KEY_POWEROFF"}

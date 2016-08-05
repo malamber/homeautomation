@@ -1,0 +1,9 @@
+
+rule "StartUp"
+when
+	System started
+then	
+	
+	say("System started")
+end
+

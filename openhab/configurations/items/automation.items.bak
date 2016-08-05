@@ -1,0 +1,5 @@
+String	VoiceCommand
+Switch	test
+Group	alldevices
+Group	lights
+DateTime	sunset	"Sunset [%1$tH:%1$tM]"	{ astro="planet=sun, type=set, property=end" }

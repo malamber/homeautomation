@@ -1,0 +1,10 @@
+#Kithen
+Dimmer	kitchenLights		"Lights" 	{insteonplm="21.69.D7:F00.00.15#loaddimmer"}
+Switch	kitchenFanHigh		"Fan High"  {insteonplm="21.69.D7:F00.00.15#keypadbuttonA,group=3"}
+Switch	kitchenFanMedium	"Fan Medium"  {insteonplm="21.69.D7:F00.00.15#keypadbuttonB,group=4"}
+Switch	kitchenFanLow		"Fan Low"  	{insteonplm="21.69.D7:F00.00.15#keypadbuttonC,group=5"}
+Switch	kitchenFanOff		"Fan Off"  	{insteonplm="21.69.D7:F00.00.15#keypadbuttonD,group=6"}
+
+
+#Switch kitchenMainLights	"Lights"		{ insteonplm = "23.D9.4F:F00.00.02#switch", }
+

@@ -1,0 +1,13 @@
+Group office
+Switch	gateway			"Gateway"		(office)			{ insteonplm="37.59.EB:F00.00.1B#switch"}
+Dimmer	officeLights	"Lights" 		(office,alldevices)	{ insteonplm="21.6A.A7:F00.00.15#loaddimmer"}
+Switch	officeFanHigh	"Fan High"		(office,alldevices)	{ insteonplm="21.6A.A7:F00.00.15#keypadbuttonA,group=3"}
+Switch	officeFanMed	"Fan Medium"	(office)	{ insteonplm="21.6A.A7:F00.00.15#keypadbuttonB,group=4"}
+Switch	officeFanLow	"Fan Low"		(office)	{ insteonplm="21.6A.A7:F00.00.15#keypadbuttonC,group=5"}
+Switch	officeFanOff	"Fan Off"		(office)	{ insteonplm="21.6A.A7:F00.00.15#keypadbuttonD,group=6"}
+
+
+Contact officeMotionSensor 	"Office Sensor [MAP(motion.map):%s]" 	{ insteonplm="25.A6.E7:0x00004A#contact"}
+Number 	officeSensorBattery	"Battery level [%.1f]" 					{ insteonplm="25.A6.E7:0x00004A#data,field=battery_level"}
+Number 	officeSensorLight	"Light level [%.1f]" 					{ insteonplm="25.A6.E7:0x00004A#data,field=light_level"}
+

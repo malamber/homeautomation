@@ -1,0 +1,10 @@
+
+rule "Gateway "
+when 
+	Item netGateway changed from ON to OFF
+then        
+	say("the gateway is down")
+	sendXbmcNotification("130.205.36.195", 8080, "Gateway","Gateway is down" )
+end
+
+

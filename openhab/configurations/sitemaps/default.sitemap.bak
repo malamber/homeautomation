@@ -1,0 +1,22 @@
+sitemap default label="Home Remote"
+{
+	Group label="Living Room" icon="sofa" {
+		Switch item=livingroomLights label="Lights" mappings=[ON="On", OFF="Off"]		
+		Switch item=livingroomFan label="Fan"		
+		Switch item=diningroomLights label="Dining Room"		
+		Group label="Garage" {
+			Text item=garageDoorContact			
+			Switch item=garageDoorOpener			
+		}		
+	}	
+	Frame label="Thermostat" icon="climate" {
+		Text item=thermostatTempFahren		
+		Text item=weatherTemp		
+		Text item=weatherCondition		
+		Text item=weatherMinMax		
+		Text item=thermostatHeatPoint visibility=[thermostatSystemMode==1]		
+		Text item=thermostatCoolPoint visibility=[thermostatSystemMode==2]		
+		Setpoint item=thermostatHeatPoint label="Heat" visibility=[thermostatSystemMode==1]		
+		Setpoint item=thermostatCoolPoint label="Cool" visibility=[thermostatSystemMode==2]		
+	}	
+}

@@ -1,0 +1,23 @@
+
+//***********************************************************************************************************
+rule "9 am channel"
+when
+	Time cron "0 0 9 * * ?"   
+then
+
+	val String MY_URL = 'http://130.205.36.195:8080/jsonrpc'
+	var String myData = '{"jsonrpc": "2.0", "method": "Player.Open", "params": { "item": { "channelid": 1} }, "id": 1 }'
+	sendHttpPostRequest(MY_URL, "application/json", myData)
+end
+//***********************************************************************************************************
+rule "4 am channel"
+when
+	Time cron "0 0 4 * * ?" 
+then
+
+	val String MY_URL = 'http://130.205.36.202:8080/jsonrpc'
+	var String myData = '{"jsonrpc": "2.0", "method": "Player.Open", "params": { "item": { "channelid": 1} }, "id": 1 }'
+	sendHttpPostRequest(MY_URL, "application/json", myData)
+
+end
+

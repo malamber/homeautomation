@@ -1,0 +1,23 @@
+import org.joda.time.*
+
+rule "Morning"
+when 
+	Time cron "0 0 08 * * ?"   // Every day 08:00 hours, evaluate sunset
+
+then        
+	sendCommand(thermostatCoolPoint, "75")
+	sendCommand(bedroomFan, OFF	)
+	sendCommand(bedroomLights, ON	)
+	say("Good morning!   It's time to get up.")
+end
+
+rule "10amoff"
+when 
+	Time cron "0 0 10 * * ?"
+then        
+	sendCommand(thermostatCoolPoint, "76")
+	sendCommand(bedroomFan, OFF	)
+	sendCommand(bedroomLights, OFF	)
+	//sendCommand(alldevices, OFF)
+  logInfo("10 am rule")
+end

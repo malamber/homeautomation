@@ -1,0 +1,14 @@
+Number thermostatCoolPoint "Cool [%.1f °F]" { insteonplm="2C.0F.5C:F00.00.18#coolsetpoint" } 
+Number thermostatHeatPoint "Heat [%.1f °F]" { insteonplm="2C.0F.5C:F00.00.18#heatsetpoint" } 
+Number thermostatSystemMode "Mode [%d]" { insteonplm="2C.0F.5C:F00.00.18#systemmode" } 
+Number thermostatFanMode "Fan [%d]" { insteonplm="2C.0F.5C:F00.00.18#fanmode" } 
+//Number thermostatIsHeating "is heating [%d]" { insteonplm="2C.0F.5C:F00.00.18#isheating"} 
+//Number thermostatIsCooling "is cooling [%d]" { insteonplm="2C.0F.5C:F00.00.18#iscooling"} 
+Number thermostatTempFahren "Current [%.1f °F]" { insteonplm="2C.0F.5C:F00.00.18#tempfahrenheit" } 
+Number thermostatTempCelsius "Current [%.1f °C]" { insteonplm="2C.0F.5C:F00.00.18#tempcelsius" } 
+Number thermostatHumidity "Humidity [%.0f %%]" { insteonplm="2C.0F.5C:F00.00.18#humidity" }
+
+
+Number   weatherTemp   		"Temperature [%.0f °F]"   {weather="locationId=home, type=temperature, property=current, unit=fahrenheit"}
+String   weatherCondition   "Condition [%s]"      	{weather="locationId=home, type=condition, property=text"}
+String   weatherMinMax    	"Min/Max [%s °F]"       {weather="locationId=home, type=temperature, property=minMax, unit=fahrenheit"}
